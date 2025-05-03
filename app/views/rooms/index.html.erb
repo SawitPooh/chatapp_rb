@@ -2,7 +2,11 @@
   <div id='rooms'>
   <div id='room-list'>
   <% @rooms.each do |room| %>
+    <p>
     <%= render room %>
+   
+    <%= link_to "Edit this room", edit_room_path(@room) %>
+    </p>
   <% end %>
 </div>
 <%= render partial: 'form', locals: {room: Room.new(name: "Room #{Room.count + 1}")} %>
